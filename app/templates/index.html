@@ -1,0 +1,430 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>ECODHONEY</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+   <!-- style css -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+   <!-- fevicon -->
+   <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   
+   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+   <style>
+      .header_full_banne {
+         height: 100vh;
+      }
+      @media (max-width: 767px) {
+
+         .header_full_banne {
+            height: auto;
+         }
+
+         .pad_lrft{
+            padding-left: 15px;
+            align-items: flex-start;
+         }
+      }
+
+      @media (max-width: 575px){
+         .navigation.navbar {
+            margin-top: 40px;
+         }
+      }
+
+   </style>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+   <!-- loader  -->
+   <div class="loader_bg">
+      <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="#" /></div>
+   </div>
+   <!-- end loader -->
+   <!-- header -->
+   <header>
+      <div class="menu_sitbar di_mr01">
+         <div class="logo">
+            <a href="/"> <a href="/"><img src="{% static 'images/logoeco1.png' %}" alt="#" /></a>
+         </div>
+         <nav class="navigation navbar navbar-expand-md navbar-dark ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05"
+               aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample05">
+               <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                     <a class="nav-link" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="about/">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="shop/">Sales Offices</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="quality/">quality</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="contact/">Contact Us</a>
+                  </li> 
+               </ul>
+            </div>
+         </nav>
+      </div>
+      <div class="header_full_banne">
+         <div class="header">
+            <div class="container-fluid">
+               <div class="row d_flex">
+                  
+                  <div class="col-md-12 col-sm-12 di_mr0">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                           data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                           aria-label="Toggle navigation">
+                           <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                           <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">
+                                 <a class="nav-link" href="/">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="about/">About</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="shop/">Sales Offices</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="quality/">quality</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="contact/">Contact Us</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- end header inner -->
+         <!-- end header -->
+         <!-- top -->
+
+
+
+         <div class="full_bg">
+            <div class="slider_main">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- carousel code -->
+                            <div id="carouselExampleIndicators" class="carousel slide">
+                                <ol class="carousel-indicators">
+                                    {% for header in headers %}
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                                    {% endfor %}
+                                </ol>
+                                <div class="carousel-inner">
+                                    {% for header in headers %}
+                                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                            <div class="carousel-caption relative">
+                                                <div class="row d_flex">
+                                                    <div class="col-md-7">
+                                                        <div class="board">
+                                                            <h3>
+                                                                {{ header.title }}
+                                                            </h3>
+                                                            <p>{{ header.text }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="banner_img">
+                                                            <figure><img class="img_responsive" src="{{ header.image.url }}" alt="{{ header.title }}"></figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- controls -->
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+      </div>
+   </header>
+   <!-- end banner -->
+   <!-- About Section -->
+<div class="about">
+   <div class="container">
+       <div class="row d_flex">
+           <div class="col-md-6">
+               <div class="titlepage text_align_left">
+                   <h2>{{header.title}}</h2>
+                   <p style="font-size: 14px; line-height: 1.6; color: #333; white-space: normal; word-wrap: break-word; word-break: break-word;">
+                     {% if about_us %}
+                         {{ about_us.text }}
+                     {% else %}
+                         Since childhood, the owner of ECO HONEY has been passionate about two things - the outdoors and starting his own business. Little did he know that his first hive would turn into something so much bigger.
+                     {% endif %}
+                  </p>
+                   <a class="read_more" href="about/">Read More</a>
+               </div>
+           </div>
+           <div class="col-md-6">
+               <div class="about_img text_align_center">
+                   {% if about_us.image %}
+                       <figure><img class="img_responsive" src="{{ about_us.image.url }}" alt="About Us Image" /></figure>
+                   {% else %}
+                       <figure><img class="img_responsive" src="{% static 'images/about.png' %}" alt="Default About Us Image" /></figure>
+                   {% endif %}
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+<!-- End About Section -->
+
+   <!-- quality -->
+   <!-- Quality Section -->
+<div class="quality">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage text_align_center">
+               <h2>SORTS OF HONEY</h2>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         {% for honey_sort in honey_sorts %}
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+               <div class="quality-box">
+                  <img src="{{ honey_sort.image.url }}" alt="{{ honey_sort.name }}" />
+               </div>
+               <p>{{ honey_sort.name }}</p>
+            </div>
+         {% endfor %}
+      </div>
+   </div>
+</div>
+<!-- End Quality Section -->
+
+   <!-- end quality -->
+
+
+
+ <!-- about -->
+<div class="about no-before">
+   <div class="container">
+      <div class="row d_flex">
+         <div class="col-md-6">
+            <div class="titlepage text_align_left">
+               <h2>Our mission and vision</h2>
+               <p>
+                  {% if mission %}
+                     {{ mission.text }}
+                  {% else %}
+                     We're dedicated to everything honey – from exquisite single-origin, mono-floral honey, to potent honey fusions to irresistible combinations of raw honey.
+                  {% endif %}
+               </p>
+   
+              
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="about_img text_align_center">
+               <figure>
+                  {% if mission and mission.image %}
+                     <img class="img_responsive" src="{{ mission.image.url }}" alt="Mission Image" />
+                  {% else %}
+                     <img class="img_responsive" src="{% static 'images/default.jpg' %}" alt="Default Mission Image" />
+                  {% endif %}
+               </figure>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+   
+
+
+   <div class="honey_bg mt-5">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <figure><img class="img_responsive" src="{% static 'images/honet_img.png' %}" alt="#" /></figure>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end honey_bg -->
+  
+
+<!-- About Section with Facts -->
+<div class="about no-before">
+   <div class="container">
+       <div class="row d_flex flex-row-reverse">
+           <div class="col-md-6">
+               <div class="titlepage text_align_left">
+                   <h2>FACTS ABOUT HONEY</h2>
+
+                   <ol class="fact-list">
+                       {% for fact in facts %}
+                           <li style="color: black;" class="pb-0">
+                               {{ fact.text }}
+                           </li>
+                       {% empty %}
+                           <p>No facts available at the moment.</p>
+                       {% endfor %}
+                   </ol>
+                   
+               </div>
+           </div>
+           <div class="col-md-6">
+               <div class="about_img text_align_center">
+                   {% if facts %}
+                       <figure><img class="img_responsive" src="{{ facts.first.image.url }}" alt="Honey Fact Image" /></figure>
+                   {% else %}
+                       <figure><img class="img_responsive" src="{% static 'images/default-facts.jpg' %}" alt="Default Fact Image" /></figure>
+                   {% endif %}
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+<!-- End About Section with Facts -->
+
+
+
+
+
+<!-- footer -->
+<footer>
+   <div class="footer">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 col-sm-6">
+               <div class="infoma text_align_left">
+                  <h3>About</h3>
+                  <p class="ipsum about-text">
+                     {% if about_us %}
+                        {{ about_us.text }}
+                     {% else %}
+                        Little did he know that his first hive would turn into something so much bigger.
+                     {% endif %}
+                  </p>
+                  <ul class="social_icon">
+                     {% if about_us %}
+                        {% for social in about_us.contacts.all %}
+                           <li><a href="{{ social.link }}" target="_blank"><i class="fa fa-{{ social.name|lower }}" aria-hidden="true"></i></a></li>
+                        {% endfor %}
+                     {% else %}
+                        <!-- Fallback social media links -->
+                        <li><a href="https://www.linkedin.com/company/93223844/admin/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/eco_honey_uae/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                     {% endif %}
+                  </ul>
+               </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+               <div class="infoma">
+                  <h3>Addresses</h3>
+                  <ul class="conta">
+                     {% if about_us and about_us.address %}
+                        <li>{{ about_us.address }}</li>
+                     {% else %}
+                        <!-- Fallback addresses -->
+                        <li>17350, State HWY 249, STE 220, Houston, TX 77064, USA</li>
+                        <li>Jafza-18, office #503, Jebel Ali Free Zone, Dubai</li>
+                        <li>Amir Temur Avenue 107/B, Tashkent, Uzbekistan</li>
+                        <li>Karshi city, Batosh street 3rd km, Uzbekistan</li>
+                     {% endif %}
+                  </ul>
+               </div>
+            </div>
+            <div class="col-md-4 pad_lrft col-sm-6">
+               <div class="infoma">
+                  <h3>Links</h3>
+                  <ul class="fullink">
+                     <li><a href="/">Home</a></li>
+                     <li><a href="about/">About</a></li>
+                     <li><a href="shop/">Sales Offices</a></li>
+                     <li><a href="quality/">Quality</a></li>
+                     <li><a href="contact/">Contact</a></li> 
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="copyright">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <p>© 2024 All Rights Reserved. ECODHONEY</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</footer>
+<!-- end footer -->
+
+<!-- Custom CSS for styling the text -->
+<style>
+   .about-text {
+      font-size: 14px; /* Adjust the font size to be smaller */
+      line-height: 1.6; /* Adjust line height to avoid text being too compact */
+      color: white; /* Dark gray color for better readability */
+      white-space: normal; /* Allow text to wrap naturally */
+      word-wrap: break-word; /* Break long words that would otherwise overflow */
+      word-break: break-word; /* Ensure words break if needed */
+   }
+</style>
+
+   <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+   <!-- sidebar -->
+   <script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
