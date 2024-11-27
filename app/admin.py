@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Header, SocialMedia, AboutUs, HoneySorts, Facts, Shop,Mission
+from .models import Header, SocialMedia, AboutUs, HoneySorts, Facts, Shop,Mission,Contact
 
 @admin.register(Header)
 class HeaderAdmin(admin.ModelAdmin):
@@ -34,3 +34,10 @@ class ShopAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Mission)
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone_number', 'message')
+    search_fields = ('name', 'email')
+
+admin.site.register(Contact, ContactAdmin)

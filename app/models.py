@@ -12,6 +12,9 @@ class SocialMedia(models.Model):
     link = models.CharField(max_length=500)
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = "Social media"
+        verbose_name_plural = "Social medias"
     
 class AboutUs(models.Model):
     text = models.TextField()
@@ -20,6 +23,9 @@ class AboutUs(models.Model):
     contacts = models.ManyToManyField(SocialMedia)
     def __str__(self):
         return self.text
+    class Meta:
+        verbose_name = "About us"
+        verbose_name_plural = "About us"
 
 
 
@@ -29,11 +35,18 @@ class HoneySorts(models.Model):
     def __str__(self):
         return self.name
     
+    class Meta:
+        verbose_name = "Honey sorts"
+        verbose_name_plural = "Honey sorts"
+    
 class Facts(models.Model):
     text = models.TextField()
     image = models.ImageField(upload_to='images')
     def __str__(self):
         return self.text
+    class Meta:
+        verbose_name = "Fact"
+        verbose_name_plural = "Facts"
  
 class Shop(models.Model):
     name = models.CharField(max_length=200)
@@ -49,3 +62,13 @@ class Mission(models.Model):
     image = models.ImageField(upload_to='images')
     def __str__(self):
         return self.text
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=15)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

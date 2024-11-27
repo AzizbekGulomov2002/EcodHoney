@@ -102,13 +102,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Ecohoney",
-    "site_header": "Ecohoney",
-    "site_brand": "Ecohoney",
+    "site_title": "Ecodhoney",
+    "site_header": "Ecodhoney",
+    "site_brand": "Ecodhoney",
     "site_logo": "images/logo.png",  # Replace with your logo path
     "site_logo_classes": "img-circle",
-    "welcome_sign": "Welcome to the Ecohoney Administration Panel",
-    "copyright": "© Ecohoney",
+    "welcome_sign": "Welcome to the Ecodhoney Administration Panel",
+    "copyright": "© Ecodhoney",
     "search_model": ["app.Header", "app.AboutUs", "app.HoneySorts", "app.Shop"],
     "user_avatar": None,
     "navbar": "navbar-navy navbar-dark",
@@ -123,6 +123,9 @@ JAZZMIN_SETTINGS = {
         "app.HoneySorts": "fas fa-seedling",
         "app.Facts": "fas fa-lightbulb",
         "app.Shop": "fas fa-store",
+        "app.Contact": "fas fa-mobile",
+        "app.Mission": "fas fa-bullseye", 
+
     },
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",

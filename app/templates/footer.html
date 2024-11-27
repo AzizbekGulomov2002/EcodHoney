@@ -1,0 +1,92 @@
+{% load static %}
+
+
+<!-- footer -->
+<footer>
+    <div class="footer">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-4 col-sm-6">
+                <div class="infoma text_align_left">
+                   <h3>About</h3>
+                   <p class="ipsum about-text">
+                      {% if about_us %}
+                         {{ about_us.text }}
+                      {% else %}
+                         Little did he know that his first hive would turn into something so much bigger.
+                      {% endif %}
+                   </p>
+                   <ul class="social_icon">
+                      {% if about_us %}
+                         {% for social in about_us.contacts.all %}
+                            <li><a href="{{ social.link }}" target="_blank"><i class="fa fa-{{ social.name|lower }}" aria-hidden="true"></i></a></li>
+                         {% endfor %}
+                      {% else %}
+                         <!-- Fallback social media links -->
+                         <li><a href="https://www.linkedin.com/company/93223844/admin/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                         <li><a href="https://www.instagram.com/eco_honey_uae/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                      {% endif %}
+                   </ul>
+                </div>
+             </div>
+             <div class="col-md-4 col-sm-6">
+                <div class="infoma">
+                   <h3>Addresses</h3>
+                   <ul class="conta">
+                      {% if about_us and about_us.address %}
+                         <li>{{ about_us.address }}</li>
+                      {% else %}
+                         <!-- Fallback addresses -->
+                         <li>17350, State HWY 249, STE 220, Houston, TX 77064, USA</li>
+                         <li>Jafza-18, office #503, Jebel Ali Free Zone, Dubai</li>
+                         <li>Amir Temur Avenue 107/B, Tashkent, Uzbekistan</li>
+                         <li>Karshi city, Batosh street 3rd km, Uzbekistan</li>
+                      {% endif %}
+                   </ul>
+                </div>
+             </div>
+             <div class="col-md-4 pad_lrft col-sm-6">
+                <div class="infoma">
+                   <h3>Links</h3>
+                   <ul class="fullink">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="about/">About</a></li>
+                      <li><a href="shop/">Sales Offices</a></li>
+                      <li><a href="quality/">Quality</a></li>
+                      <li><a href="contact/">Contact</a></li> 
+                   </ul>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="copyright">
+          <div class="container">
+             <div class="row">
+                <div class="col-md-12">
+                   <p>© 2024 All Rights Reserved. ECODHONEY</p>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>
+ <!-- end footer -->
+ 
+ <!-- Custom CSS for styling the text -->
+ <style>
+    .about-text {
+       font-size: 14px; /* Adjust the font size to be smaller */
+       line-height: 1.6; /* Adjust line height to avoid text being too compact */
+       color: white; /* Dark gray color for better readability */
+       white-space: normal; /* Allow text to wrap naturally */
+       word-wrap: break-word; /* Break long words that would otherwise overflow */
+       word-break: break-word; /* Ensure words break if needed */
+    }
+ </style>
+ 
+    <!-- Javascript files-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/custom.js' %}"></script>

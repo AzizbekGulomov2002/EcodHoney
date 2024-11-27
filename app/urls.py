@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import IndexView, header_list, about,shop_list,quality
+from .views import IndexView, header_list, about,shop_list,quality,contact_us
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -8,7 +8,9 @@ urlpatterns = [
     path('headers/', header_list, name='header_list'),
     path('about/', about, name='about_us'),
     path("shop/",shop_list, name='shop'),
-    path("quality/",quality, name='quality')
+    path("quality/",quality, name='quality'),
+    path('contact/', contact_us, name='contact_us'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

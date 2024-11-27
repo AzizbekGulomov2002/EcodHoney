@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import View
+from django.contrib import messages  
+from app.forms import ContactForm
 from .models import Header, AboutUs, HoneySorts, Facts, Shop,Mission
 
 class IndexView(View):
@@ -13,6 +15,21 @@ class IndexView(View):
             'mission': Mission.objects.first(),
         }
         return render(request, 'index.html', context)
+
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Add success message to be shown in the template
+            messages.success(request, "Thank you for contacting us!")
+            return redirect('contact_us')  # Redirect to the same page to display the message
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
+
 
 
 def header_list(request):
